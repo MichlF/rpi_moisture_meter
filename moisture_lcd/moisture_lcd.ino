@@ -55,11 +55,7 @@ void loop() {
  
   // Get soil mositure value
   soilMoistureValue = analogRead(SENSOR_IN);
- 
-  // Print to serial monitor
-  Serial.print(soilMoistureValue);
-  Serial.print(" - ");
- 
+
   // Determine soil moisture percentage value
   soilMoisturePercent = map(soilMoistureValue, DryValue, WetValue, 0, 100);
  
@@ -67,6 +63,8 @@ void loop() {
   soilMoisturePercent = constrain(soilMoisturePercent, 0, 100);
  
   // Print to serial monitor
+  Serial.print(soilMoistureValue);
+  Serial.print(" - ");
   Serial.println(soilMoisturePercent);
  
   // Position and print text to OLED
